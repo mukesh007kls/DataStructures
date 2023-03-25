@@ -1,4 +1,5 @@
-package org.example;
+package org.example.unorderedList;
+import org.example.Node;
 
 public class UnorderedList<T extends Comparable<T>> {
     private Node<T> head;
