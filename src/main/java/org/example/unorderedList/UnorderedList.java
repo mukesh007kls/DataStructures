@@ -4,6 +4,7 @@ import org.example.Node;
 public class UnorderedList<T extends Comparable<T>> {
     private Node<T> head;
     private Node<T> tail;
+    private int size;
 
     public UnorderedList(){
         head=null;
@@ -11,6 +12,7 @@ public class UnorderedList<T extends Comparable<T>> {
     }
 
     public void add(T word) {
+        size++;
         Node<T> node=new Node<>(word);
         if (head==null){
             head=node;
@@ -19,6 +21,27 @@ public class UnorderedList<T extends Comparable<T>> {
         }
         tail.next=node;
         tail=node;
+    }
+
+    public void push(T data){
+        size++;
+        Node<T> node=new Node<>(data);
+        if (head==null){
+            head=node;
+            tail=node;
+            return;
+        }
+        node.next=head;
+        head=node;
+    }
+
+    public void pop(){
+        if (head==null) return;
+        head=head.next;
+        size--;
+    }
+    public boolean isEmpty(){
+        return size==0;
     }
 
     public boolean search(T word) {
